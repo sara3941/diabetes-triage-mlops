@@ -10,11 +10,12 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import mlflow
 import mlflow.sklearn
-
+from pathlib import Path 
 
 def train(version="v0.2"):
-    mlflow.set_tracking_uri("sqlite:////app/mlflow.db")
-    mlflow.set_experiment("diabetes_triage_v0.1")
+    tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "sqlite:///mlruns.db")
+    mlflow.set_tracking_uri(tracking_uri)
+    mlflow.set_experiment(f"diabetes_triage_{version}")
 
     # Load dataset
     data = load_diabetes(as_frame=True)
