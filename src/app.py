@@ -51,7 +51,7 @@ def health():
 
 @app.post("/predict")
 def predict(payload: DiabetesInput):
-    global model
+
     if model is None:
         load_model()
         if model is None:
