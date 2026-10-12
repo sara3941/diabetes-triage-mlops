@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import mlflow
 import mlflow.sklearn
-from pathlib import Path
+
 
 
 def train(version="v0.2"):
@@ -99,7 +99,7 @@ def train(version="v0.2"):
 
 def main():
     version = os.getenv("MODEL_VERSION", "v0.2")
-    pipeline, metrics = train(version=version)
+    _, metrics = train(version=version)
     print(
         f"[{metrics['model_version']}] Training Complete | "
         f"Model: {metrics['model_type']} | "
