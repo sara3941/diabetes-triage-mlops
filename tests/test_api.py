@@ -1,4 +1,3 @@
-
 import pytest
 from fastapi.testclient import TestClient
 from src.app import app
@@ -86,4 +85,3 @@ def test_predict_empty_payload_returns_422(client):
     assert response.status_code == 422
     data = response.json()
     assert len(data["details"]) == 10  # All 10 fields are missing
-    
