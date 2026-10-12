@@ -39,10 +39,12 @@ def train(version="v0.2"):
         extra_params = {"cv_folds": 5}
 
     with mlflow.start_run(run_name=run_name):
-        pipeline = Pipeline([
-            ("scaler", StandardScaler()),
-            ("regressor", regressor),
-        ])
+        pipeline = Pipeline(
+            [
+                ("scaler", StandardScaler()),
+                ("regressor", regressor),
+            ]
+        )
 
         pipeline.fit(X_train, y_train)
 
@@ -83,7 +85,9 @@ def train(version="v0.2"):
             "test_r2": test_r2,
         }
         if version != "v0.1":
-            metrics["selected_best_alpha"] = float(pipeline.named_steps["regressor"].alpha_)
+            metrics["selected_best_alpha"] = float(
+                pipeline.named_steps["regressor"].alpha_
+            )
 
         with open("models/metrics.json", "w") as f:
             json.dump(metrics, f, indent=2)
@@ -94,7 +98,9 @@ def train(version="v0.2"):
 def main():
     version = os.getenv("MODEL_VERSION", "v0.2")
     pipeline, metrics = train(version=version)
-    print(f"[{metrics['model_version']}] Training Complete | Model: {metrics['model_type']} | Test RMSE: {metrics['test_rmse']:.2f} | Test R2: {metrics['test_r2']:.4f}")
+    print(
+        f"[{metrics['model_version']}] Training Complete | Model: {metrics['model_type']} | Test RMSE: {metrics['test_rmse']:.2f} | Test R2: {metrics['test_r2']:.4f}"
+    )
 
 
 if __name__ == "__main__":
