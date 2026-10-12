@@ -1,5 +1,9 @@
 {
-  "model_version": "v0.1",
-  "test_rmse": 53.8534,
-  "test_r2": 0.4526
+  "model_version": "v0.2",
+  "model_type": "RidgeCV",
+  "train_rmse": 53.97868010259395,
+  "test_rmse": 53.44942464547319,
+  "train_r2": 0.5204892932635568,
+  "test_r2": 0.46078535864285375,
+  "selected_best_alpha": 44.98432668969444
 }
