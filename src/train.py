@@ -10,7 +10,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 import mlflow
 import mlflow.sklearn
-from pathlib import Path 
+from pathlib import Path
+
 
 def train(version="v0.2"):
     tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "sqlite:///mlruns.db")
