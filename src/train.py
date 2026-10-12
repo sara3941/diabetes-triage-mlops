@@ -99,7 +99,10 @@ def main():
     version = os.getenv("MODEL_VERSION", "v0.2")
     pipeline, metrics = train(version=version)
     print(
-        f"[{metrics['model_version']}] Training Complete | Model: {metrics['model_type']} | Test RMSE: {metrics['test_rmse']:.2f} | Test R2: {metrics['test_r2']:.4f}"
+        f"[{metrics['model_version']}] Training Complete | "
+        f"Model: {metrics['model_type']} | "
+        f"Test RMSE: {metrics['test_rmse']:.2f} | "
+        f"Test R2: {metrics['test_r2']:.4f}"
     )
 
 
