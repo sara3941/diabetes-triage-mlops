@@ -12,7 +12,6 @@ import mlflow
 import mlflow.sklearn
 
 
-
 def train(version="v0.2"):
     tracking_uri = os.getenv("MLFLOW_TRACKING_URI", "sqlite:///mlruns.db")
     mlflow.set_tracking_uri(tracking_uri)
